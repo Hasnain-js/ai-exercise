@@ -1,161 +1,138 @@
 <script setup>
-	const answerValue = ref([]);
-	const questionValue = [
-		'Driven',
-		'Empathy',
-		'Persuasive',
-		'Creative',
-		'Curious',
-		'Innovative',
-		'Strategic',
-		'Tenacious',
-		'Leader',
-		'Problem solver',
-		'Negotiator',
-		'Data Oriented',
-		'Analytical',
-		'Teacher / Mentor',
-		'Detail Oriented',
-		'Organized',
-		'User defined',
-		// 'User defined',
-		// 'User defined',
-		// 'User defined',
-	];
-	const isShowSelectedValue = ref(false);
-	const onSubmit = () => {
-		if (answerValue.value.length > 0) isShowSelectedValue.value = true;
-	};
+definePageMeta({
+	layout: false
+})
+const answerValue = ref([]);
+const questionValue = [
+	'Driven',
+	'Empathy',
+	'Persuasive',
+	'Creative',
+	'Curious',
+	'Innovative',
+	'Strategic',
+	'Tenacious',
+	'Leader',
+	'Problem solver',
+	'Negotiator',
+	'Data Oriented',
+	'Analytical',
+	'Teacher / Mentor',
+	'Detail Oriented',
+	'Organized',
+	'User defined',
+	// 'User defined',
+	// 'User defined',
+	// 'User defined',
+];
+const isShowSelectedValue = ref(false);
+const onSubmit = () => {
+	if (answerValue.value.length > 0) isShowSelectedValue.value = true;
+};
 </script>
 <template>
-	<div class="">
-		<!-- <div class="flex-1 flex flex-col gap-y-16 py-14">
-			<div class="flex flex-col gap-y-4 items-center justify-center">
-				<p
-					class="text-black dark:text-white text-base sm:text-lg font-semibold text-center"
-				>
-					Exercise no 1
-				</p>
-				<h1
-					class="text-black dark:text-white text-4xl sm:text-5xl font-semibold text-center"
-				>
-					Your unique talent
-				</h1>
-			</div>
-			<div
-				class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6 max-w-[960px] px-4"
-			>
-				<div
-					v-for="item in 8"
-					:key="item"
-					class="relative"
-				>
-					<label
-						:for="'box' + item"
-						class="flex flex-col aspect-square justify-center cursor-pointer peer-checked:scale-105 get-started-gradient-border rounded-xl items-center gap-y-4 p-5 z-10"
-					>
-						<input
-							type="checkbox"
-							class="peer"
-							hidden
-							:name="'box' + item"
-							:id="'box' + item"
-						/>
-						<span
-							class="text-white text-xs font-bold border border-white rounded-full items-center justify-center aspect-square px-1 absolute hidden peer-checked:flex top-4 right-4"
-						>
-							&check;
-						</span>
-						<h2 class="font-semibold text-xl text-black dark:text-white">
-							Get started
+	<main>
+		<div class="flex overflow-hidden h-screen">
+			<div class="z-0 sticky h-screen w-1/3">
+				<div class="block overflow-hidden relative w-full h-full">
+					<div class="z-10 relative mt-16 px-5 space-y-5">
+						<h2 class="text-white font-semibold font-sans text-center text-4xl">
+							Ace your interview and win the job!
 						</h2>
-					</label>
+						<p class="text-white/90 font-medium leading-relaxed font-sans text-center text-sm">
+							We've seen it time and again. The candidates who excel in job interviews are the ones who
+							prepare. Preparation doesn't mean reading an article or two. It means being intentional
+							about crafting your answers, designing your examples, and above all, practicing.
+						</p>
+						<p class="text-white/90 font-medium font-sans leading-relaxed text-center text-sm">
+							We've made it simple.
+						</p>
+					</div>
+					<img src="/images/auth-bg.png" alt="blue background image"
+						class="block w-full h-full absolute inset-0 ">
+					<img src="/images/sign-up.png" alt="man and women image"
+						class="absolute left-0 bottom-0 box-border  p-0 border-none m-0 block w-full h-auto">
 				</div>
 			</div>
-		</div> -->
-		<main>
-			<section class="relative z-10 pt-32 lg:pt-36 xl:pt-40 pb-20">
-				<div
-					class="absolute top-25 left-0 w-full flex flex-col gap-3 -z-10 opacity-50"
-				>
-					<div class="w-full h-[1.24px] footer-bg-gradient"></div>
-					<div class="w-full h-[2.47px] footer-bg-gradient"></div>
-					<div class="w-full h-[3.71px] footer-bg-gradient"></div>
-					<div class="w-full h-[4.99px] footer-bg-gradient"></div>
-					<div class="w-full h-[6.19px] footer-bg-gradient"></div>
-					<div class="w-full h-[7.42px] footer-bg-gradient"></div>
-					<div class="w-full h-[8.66px] footer-bg-gradient"></div>
-					<div class="w-full h-[9.90px] footer-bg-gradient"></div>
-					<div class="w-full h-[13px] footer-bg-gradient"></div>
-				</div>
-
-				<div class="text-center px-4">
-					<h1 class="font-extrabold text-heading-2 text-white mb-5">
-						Exercise no 1
-					</h1>
-					<ul class="flex items-center justify-center gap-2">
-						<li class="font-medium text-lg">Your unique talent</li>
-					</ul>
-				</div>
-			</section>
-
-			<section class="pt-16 pb-16 lg:pb-20 xl:pb-28">
-				<div class="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
-					<div class="wow fadeInUp rounded-3xl bg-white/[0.05] py-8 px-4">
-						<template v-if="!isShowSelectedValue">
-							<div
-								class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 px-4"
-							>
+			<div class="border border-white overflow-y-auto flex-grow z-10">
+				<div class="flex items-center w-full px-6 mt-12 mx-auto">
+					<div class="flex-1">
+						<!-- Radio options -->
+						<div class="flex items-center justify-center gap-5 mb-12">
+							<div class="flex  items-center gap-2">
 								<div
-									v-for="item in questionValue"
-									:key="item"
-									class="relative"
-								>
-									<input
-										type="checkbox"
-										class="peer hidden"
-										:name="item.replace(' ', '-')"
-										:id="item.replace(' ', '-')"
-										:value="item"
-										v-model="answerValue"
-									/>
-									<label
-										:for="item.replace(' ', '-')"
-										class="flex flex-col justify-center border border-white/[0.12] ease-in duration-300 hover:border-purple peer-checked:border-[#8646f4] md:aspect-square cursor-pointer peer-checked:scale-105 rounded-xl items-center gap-y-4 p-5 z-10"
-									>
-										<h2 class="font-medium text-md text-white">{{ item }}</h2>
-									</label>
+									class="border-2 border-black/40 p-2 shadow-lg bg-white rounded-full flex items-center justify-center w-8 h-8">
+									1
 								</div>
+								<span>
+									Introduction
+								</span>
 							</div>
 
-							<button
-								type="submit"
-								@click="onSubmit"
-								class="hero-button-gradient flex justify-center ml-auto mt-12 mr-4 w-fit rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
-							>
-								Submit
-							</button>
-						</template>
+							<hr class="w-12 border-2 rounded-full">
 
-						<div
-							class="p-4"
-							v-else
-						>
-							<h2 class="text-white text-2xl uppercase font-bold">
-								Your answers:
-							</h2>
-							<ul class="list-decimal list-inside mt-2 space-y-3">
-								<li
-									v-for="ans in answerValue"
-									:key="'answer-value' + ans"
-								>
-									{{ ans }}
-								</li>
-							</ul>
+							<div class="flex items-center gap-2">
+								<div
+									class="border-2 border-black/40 p-2 shadow-lg bg-white rounded-full flex items-center justify-center w-8 h-8">
+									2
+								</div>
+								<span>
+									Self-Assessment
+								</span>
+							</div>
+							<hr class="w-12 border-2 rounded-full">
+
+							<div class="flex text-black items-center gap-2">
+								<div
+									class="border-2 border-black/60 p-2 shadow-lg bg-white rounded-full flex items-center justify-center w-8 h-8">
+									3
+								</div>
+								<span>
+									Self-Assessment Exercise
+								</span>
+							</div>
+						</div>
+
+						<!-- Form signal -->
+						<!-- <div class="">
+							<h1 class="mt-3 text-black font-bold text-4xl capitalize">Exercise No 1</h1>
+						</div> -->
+						<div class="mt-8">
+							<form>
+								<template v-if="!isShowSelectedValue">
+									<div
+										class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 px-4">
+										<div v-for="item in questionValue" :key="item" class="relative">
+											<input type="checkbox" class="peer hidden" :name="item.replace(' ', '-')"
+												:id="item.replace(' ', '-')" :value="item" v-model="answerValue" />
+											<label :for="item.replace(' ', '-')"
+												class="flex flex-col justify-center border border-black/[0.12] ease-in duration-300 hover:border-teal-500 peer-checked:border-teal-400 cursor-pointer peer-checked:scale-105 rounded-xl items-center gap-y-4 p-5 z-10">
+												<h2 class="font-medium text-md text-black">{{ item }}</h2>
+											</label>
+										</div>
+									</div>
+									<button type="submit" @click="onSubmit"
+										class="w-fit block ml-auto px-12 py-2 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
+										Submit
+									</button>
+								</template>
+
+								<div class="p-4" v-else>
+									<h2 class="text-black text-2xl capitalize font-bold">
+										Your answers:
+									</h2>
+									<ul class="list-decimal list-inside space-y-3 mt-6 text-sm text-gray-500">
+										<li v-for="ans in answerValue" :key="'answer-value' + ans">
+											{{ ans }}
+										</li>
+									</ul>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
-			</section>
-		</main>
-	</div>
+			</div>
+		</div>
+	</main>
+
 </template>

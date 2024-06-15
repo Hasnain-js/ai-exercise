@@ -5,21 +5,34 @@ definePageMeta({
 </script>
 <template>
 	<main>
-		<div title="Sign in" class="flex">
-			<div class="z-0 sticky h-screen w-[30%]">
+		<div title="Sign up" class="flex">
+			<div class="z-0 sticky h-screen w-1/4">
 				<div class="block overflow-hidden relative w-full h-full">
-					<div class="z-10 relative mt-16 px-5 space-y-5">
+					<div class="z-10 relative mt-16 px-5 space-y-9">
 						<h2 class="text-white font-semibold font-sans text-center text-4xl">
 							Ace Every Interview, Get Hired Faster
 						</h2>
-						<!-- <p class="text-white/90 font-medium leading-relaxed font-sans text-center text-sm">
-							We've seen it time and again. The candidates who excel in job interviews are the ones who
-							prepare. Preparation doesn't mean reading an article or two. It means being intentional
-							about crafting your answers, designing your examples, and above all, practicing.
-						</p>
-						<p class="text-white/90 font-medium font-sans leading-relaxed text-center text-sm">
-							We've made it simple.
-						</p> -->
+						<ul class="flex justify-between gap-2">
+							<li class="text-white/90 font-medium leading-relaxed font-sans text-center text-sm">
+								<img src="/images/check.svg" class="mx-auto mb-2" alt="check icon" width="24"
+									height="24">
+								Learn how to sell yourself and easily stand out.
+							</li>
+							<li class="text-white/90 font-medium leading-relaxed font-sans text-center text-sm">
+								<img src="/images/check.svg" class="mx-auto mb-2" alt="check icon" width="24"
+									height="24">
+
+								Know
+								exactly what to expect, and how to answer questions
+							</li>
+							<li class="text-white/90 font-medium leading-relaxed font-sans text-center text-sm">
+								<img src="/images/check.svg" class="mx-auto mb-2" alt="check icon" width="24"
+									height="24">
+
+								Get
+								immediate AI feedback in an interactive interview simulator.
+							</li>
+						</ul>
 					</div>
 					<img src="/images/auth-bg.png" alt="blue background image"
 						class="block w-full h-full absolute inset-0 ">
@@ -45,13 +58,15 @@ definePageMeta({
 								<div class="mt-6">
 									<div class="flex justify-between mb-2">
 										<label for="password" class="text-sm font-semibold text-black">Password</label>
-										<a href="#"
+										<!-- <a href="#"
 											class="text-sm text-gray-500 focus:text-blue-500 hover:text-blue-500 hover:underline">Forgot
-											password?</a>
+											password?</a> -->
 									</div>
 
-									<input type="password" name="password" id="password" placeholder="Your Password"
+									<input type="password" name="password" id="password" placeholder="Min 8 character"
 										class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+									<p class="text-sm text-gray-500 mt-1">
+										Password must contain at least 1 uppercase, 1 lowercase character and one digit.</p>
 								</div>
 
 								<div class="mt-6 w-full">
@@ -63,7 +78,7 @@ definePageMeta({
 
 							</form>
 
-							<p class="mt-6 text-sm text-center text-gray-500">Do you have an account already? <a
+							<p class="mt-6 text-sm text-center text-gray-500">Do you have an already account? <a
 									href="#"
 									class="text-blue-500 focus:outline-none focus:underline hover:underline">Sign
 									in</a>.</p>
