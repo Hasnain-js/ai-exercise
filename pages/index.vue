@@ -34,20 +34,20 @@
 			<div class="text-center">
 				<a
 					href="/"
-					class="hero-subtitle-gradient hover:hero-subtitle-hover relative mb-5 font-medium text-sm inline-flex items-center gap-2 py-2 px-4 rounded-full"
+					class="bg-white bg-opacity-30 relative mb-5 font-medium text-sm inline-flex items-center gap-2 py-2 px-4 rounded-full"
 				>
 					<img
 						src="/images/icon-title.svg"
 						alt="icon"
 					/>
-					<span class="hero-subtitle-text"> Lorem ipsum dolor sit amet </span>
+					<span class="hero-subtitle-text !text-black"> Lorem ipsum dolor sit amet </span>
 				</a>
 				<h1
-					class="text-white mb-6 text-3xl font-extrabold sm:text-5xl xl:text-heading-1"
+					class="text-black mb-6 text-3xl font-extrabold sm:text-5xl xl:text-heading-1"
 				>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
 				</h1>
-				<p class="max-w-[500px] mx-auto mb-9 font-medium md:text-lg">
+				<p class="max-w-[500px] mx-auto text-black/60 mb-9 font-medium md:text-lg">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
 					quisquam adipisci expedita magnam. Modi ab dolorum ratione voluptates,
 					reprehenderit fuga rem.

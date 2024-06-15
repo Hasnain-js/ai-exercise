@@ -112,7 +112,7 @@ const onSubmit = () => {
 										</div>
 									</div>
 									<button type="submit" @click="onSubmit"
-										class="w-fit block ml-auto px-12 py-2 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
+										class="w-fit block ml-auto px-11 py-3 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
 										Submit
 									</button>
 								</template>
