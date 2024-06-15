@@ -2,7 +2,8 @@ body {
 	position: relative;
 	z-index: 1;
 	--tw-bg-opacity: 1;
-	background-color: rgb(3 0 20 / var(--tw-bg-opacity));
+	background-color: #ffffff;
+	/* background-color: rgb(3 0 20 / var(--tw-bg-opacity)); */
 	font-family: Plus Jakarta Sans, sans-serif;
 	font-size: 1rem;
 	line-height: 1.5rem;
@@ -99,7 +100,7 @@ body {
 	-webkit-animation-name: fadeInUp;
 	animation-name: fadeInUp;
 }
-/* 
+/*
 .bg-gradient-to-b {
 	background-image: -webkit-gradient(
 		linear,
