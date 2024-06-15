@@ -33,7 +33,7 @@ const onSubmit = () => {
 <template>
 	<main>
 		<div class="flex overflow-hidden h-screen">
-			<div class="z-0 sticky h-screen w-1/3">
+			<div class="z-0 sticky h-screen w-1/3 md:block hidden">
 				<div class="block overflow-hidden relative w-full h-full">
 					<div class="z-10 relative mt-16 px-5 space-y-5">
 						<h2 class="text-white font-semibold font-sans text-center text-4xl">
@@ -58,7 +58,7 @@ const onSubmit = () => {
 				<div class="flex items-center w-full px-6 mt-12 mx-auto">
 					<div class="flex-1">
 						<!-- Radio options -->
-						<div class="flex items-center justify-center gap-5 mb-12">
+						<div class="flex sm:items-center items-start sm:flex-row flex-col justify-center gap-5 mb-12">
 							<div class="flex  items-center gap-2">
 								<div
 									class="border-2 border-black/40 p-2 shadow-lg bg-white rounded-full flex items-center justify-center w-8 h-8">
@@ -69,7 +69,7 @@ const onSubmit = () => {
 								</span>
 							</div>
 
-							<hr class="w-12 border-2 rounded-full">
+							<hr class="sm:w-12 w-full border-2 rounded-full">
 
 							<div class="flex items-center gap-2">
 								<div
@@ -80,7 +80,7 @@ const onSubmit = () => {
 									Self-Assessment
 								</span>
 							</div>
-							<hr class="w-12 border-2 rounded-full">
+							<hr class="sm:w-12 w-full border-2 rounded-full">
 
 							<div class="flex text-black items-center gap-2">
 								<div

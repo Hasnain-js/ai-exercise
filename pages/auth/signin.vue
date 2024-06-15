@@ -6,7 +6,7 @@ definePageMeta({
 <template>
 	<main>
 		<div title="Sign in" class="flex">
-			<div class="z-0 sticky h-screen w-1/4">
+			<div class="z-0 sticky h-screen w-1/4 md:block hidden">
 				<div class="block overflow-hidden relative w-full h-full">
 					<div class="z-10 relative mt-16 px-5 space-y-5">
 						<h2 class="text-white font-semibold font-sans text-center text-4xl">
