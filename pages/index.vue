@@ -1,74 +1,29 @@
 <template>
-	<section
-		id="home"
-		class="relative overflow-hidden z-10 pt-36 md:pt-40 xl:pt-45 min-h-screen"
-	>
-		<div class="max-w-7xl mx-auto">
-			<div
-				class="absolute -z-10 pointer-events-none inset-0 overflow-hidden -mx-28"
-			>
-				<div
-					class="absolute -z-10 -top-[128%] sm:-top-[107%] xl:-top-[73%] left-1/2 -translate-x-1/2 -u-z-10 hero-circle-gradient w-full h-[1282px] rounded-full max-w-[1282px]"
-				></div>
-				<div
-					class="absolute -z-10 -top-[112%] sm:-top-[93%] xl:-top-[62%] left-1/2 -translate-x-1/2 -u-z-10 hero-circle-gradient w-full h-[1046px] rounded-full max-w-[1046px]"
-				></div>
-				<div class="absolute top-0 left-1/2 -translate-x-1/2 -u-z-10">
-					<img
-						src="/images/blur-02.svg"
-						alt="blur"
-						class="max-w-none"
-					/>
-				</div>
-				<div class="absolute top-0 left-1/2 -translate-x-1/2 -u-z-10">
-					<img
-						src="/images/blur-01.svg"
-						alt="blur"
-						class="max-w-none"
-					/>
-				</div>
-			</div>
-		</div>
+	<Layout>
+		<template #header>
 
-		<div class="mx-auto max-w-[900px] px-4 sm:px-8 xl:px-0 relative z-1">
-			<div class="text-center">
-				<a
-					href="/"
-					class="bg-white bg-opacity-30 relative mb-5 font-medium text-sm inline-flex items-center gap-2 py-2 px-4 rounded-full"
-				>
-					<img
-						src="/images/icon-title.svg"
-						alt="icon"
-					/>
-					<span class="hero-subtitle-text !text-black"> Lorem ipsum dolor sit amet </span>
-				</a>
-				<h1
-					class="text-black mb-6 text-3xl font-extrabold sm:text-5xl xl:text-heading-1"
-				>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				</h1>
-				<p class="max-w-[500px] mx-auto text-black/60 mb-9 font-medium md:text-lg">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-					quisquam adipisci expedita magnam. Modi ab dolorum ratione voluptates,
-					reprehenderit fuga rem.
-				</p>
-				<NuxtLink
-					to="/preparation"
-					class="hero-button-gradient inline-flex rounded-lg py-3 px-7 text-white font-medium ease-in duration-300 hover:opacity-80"
-				>
-					Get Started
-				</NuxtLink>
+		</template>
+		<template #body>
+			<div class="flex items-center justify-center h-[calc(100vh-14rem)] w-full">
+				<div class="space-y-5 w-full">
+
+					<h2 class="text-black font-semibold font-sans  text-5xl">
+						My Interview Advisor
+					</h2>
+					<p class="text-black/60 font-medium leading-relaxed font-sans">
+						Welcome to My Interview Advisor! This series of interactive exercises provides detailed examples
+						and practical guidance, showcasing how several of our students have successfully navigated and
+						completed these crucial tasks. Explore the exercises to uncover insights and strategies that can
+						help you shine in your next interview.
+					</p>
+					<NuxtLink to="/preparation"
+						class="w-fit max-w-xs px-12 block py-2 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
+						Get Started
+					</NuxtLink>
+				</div>
 			</div>
-		</div>
-		<!-- <div
-			class="mt-16"
-			data-wow-delay="0.1s"
-		>
-			<img
-				class="mx-auto"
-				src="/images/hero.svg"
-				alt="hero"
-			/>
-		</div> -->
-	</section>
+
+
+		</template>
+	</Layout>
 </template>

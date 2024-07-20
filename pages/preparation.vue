@@ -54,7 +54,7 @@ const onSubmit = () => {
 						class="absolute left-0 bottom-0 box-border  p-0 border-none m-0 block w-full h-auto">
 				</div>
 			</div>
-			<div class="border border-white overflow-y-auto flex-grow z-10">
+			<div class="overflow-y-auto flex-grow z-10">
 				<div class="flex items-center w-full px-6 mt-12 mx-auto">
 					<div class="flex-1">
 						<!-- Radio options -->
