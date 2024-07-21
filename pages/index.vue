@@ -16,7 +16,7 @@
 						completed these crucial tasks. Explore the exercises to uncover insights and strategies that can
 						help you shine in your next interview.
 					</p>
-					<NuxtLink to="/preparation"
+					<NuxtLink to="/exercise/1"
 						class="w-fit max-w-xs px-12 block py-2 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
 						Get Started
 					</NuxtLink>

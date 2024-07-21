@@ -60,15 +60,15 @@ const incrementPage = () => {
                 </div>
             </div>
             <div class="overflow-y-auto flex-grow z-10">
-                <div class="flex items-center w-full px-6 mt-12 mx-auto">
+                <div class="flex items-center w-full px-6 md:mt-12 mt-2 mx-auto">
                     <div class="flex-1">
                         <!-- breadcrumbs -->
-                        <ExerciseBreadcrumb :links="pages" :active-link="page" />
+                        <ExerciseBreadcrumb class="md:block hidden" :links="pages" :active-link="page.toString()" />
 
                         <!-- Form signal -->
                         <div class="mt-8">
                             <form @submit.prevent="onSubmit()"
-                                class="flex flex-col justify-between min-h-[calc(100vh-176px)] overflow-y-scroll no-scrollbar">
+                                class="flex flex-col justify-between md:min-h-[calc(100vh-176px)] min-h-[90vh] overflow-y-scroll no-scrollbar">
                                 <template v-if="page < 1">
                                     <ExerciseIntro :intro="exerciseData" />
                                 </template>
@@ -97,7 +97,7 @@ const incrementPage = () => {
                                     </ul>
                                 </div>
                                 <button :type="page < 1 ? 'button' : 'submit'" @click="incrementPage"
-                                    class="w-fit block ml-auto mt-4 px-11 sticky bottom-0 py-3 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
+                                    class="w-fit block ml-auto my-4 px-11 sticky bottom-0 py-3 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
                                     {{ page < 1 ? 'Next' : 'submit' }} </button>
                             </form>
                         </div>
