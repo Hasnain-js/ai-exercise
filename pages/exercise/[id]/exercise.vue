@@ -2,26 +2,6 @@
 import Swal from 'sweetalert2'
 const { data: exerciseData, pending: isLoading } = useFetch(`/api/exercise/${useRoute().params.id}`)
 const answerValue = ref([]);
-const questionValue = [
-    'Driven',
-    'Empathy',
-    'Persuasive',
-    'Creative',
-    'Curious',
-    'Innovative',
-    'Strategic',
-    'Tenacious',
-    'Leader',
-    'Problem solver',
-    'Negotiator',
-    'Data Oriented',
-    'Analytical',
-    'Teacher / Mentor',
-    'Detail Oriented',
-    'Organized',
-    'User defined',
-];
-
 const onSubmit = () => {
     if (answerValue.value.length >= 3 && answerValue.value.length <= 6) {
         const answerString = answerValue.value.join(',');
@@ -44,7 +24,7 @@ const onSubmit = () => {
         <form @submit.prevent="onSubmit"
             class="flex flex-col justify-between md:min-h-[calc(100vh-176px)] min-h-[90vh] overflow-y-scroll no-scrollbar">
             <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 p-4">
-                <div v-for="item in questionValue" :key="item" class="relative">
+                <div v-for="item in exerciseData.question" :key="item" class="relative">
                     <input type="checkbox" class="peer hidden" :name="item.replace(' ', '-')"
                         :id="item.replace(' ', '-')" :value="item" v-model="answerValue" />
                     <label :for="item.replace(' ', '-')"

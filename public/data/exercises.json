@@ -16,7 +16,25 @@
     "understanding": {
       "title": "Understanding Your Top Talents:",
       "value": "Talents are innate traits that define your character or personality. They reflect your strengths and what you naturally bring to any role or team. Select traits that genuinely resonate with you. They should reflect not only what you do but also who you are as a professional. Once you've chosen your traits, we'll help you weave them into a compelling narrative. Employers look beyond just skills; they want to know what drives you and how you fit into their team culture."
-    }
+    },
+    "question": [
+      "Adventurous",
+      "Ambitious",
+      "Agreeable",
+      "Compassionate",
+      "Confident",
+      "Courageous",
+      "Creative",
+      "Curious",
+      "Driven",
+      "Empathetic",
+      "Extravert",
+      "Flexible",
+      "Helpful",
+      "Honest",
+      "Humble",
+      "Tenacious"
+    ]
   },
   {
     "id": "2",
@@ -35,7 +53,25 @@
     "understanding": {
       "title": "Understanding Your Top Skills:",
       "value": "Skills are practical and measurable abilities that you bring to any job. They are developed through training, practice, and hands-on experience. Choose skills that you excel in and enjoy using. They should align with your career goals and demonstrate your strengths to potential employers. Your selected skills will showcase your expertise and proficiency in key areas relevant to your desired roles. They establish your credibility as a candidate."
-    }
+    },
+    "question": [
+      "Adaptable",
+      "Approachable",
+      "Strong Communicator",
+      "Computer Science",
+      "Customer Service",
+      "Data Analysis",
+      "Graphic Arts",
+      "Leadership",
+      "Multi-Tasking",
+      "Multi-Lingual",
+      "Problem Solving",
+      "Project Management",
+      "Research Expertise",
+      "Sales Savvy",
+      "Teamwork",
+      "Time Management"
+    ]
   },
   {
     "id": "3",
@@ -54,7 +90,25 @@
     "understanding": {
       "title": "Understanding Your Targeted Industries:",
       "value": "Industries are large segments of the economy characterized by similar types of businesses or organizations. They represent where you want to apply your skills and expertise. Select industries that resonate with your career aspirations and where you believe you can make a meaningful impact. Consider factors such as growth opportunities, alignment with your skills, and personal interests. Your chosen industries will shape how you position yourself professionally. They demonstrate your focus and commitment to specific sectors, which can make you a more attractive candidate."
-    }
+    },
+    "question": [
+      "Accounting /Finance",
+      "Administrative",
+      "Analytics",
+      "Customer Service",
+      "Human Resources",
+      "IT",
+      "Legal",
+      "Marketing",
+      "Operations",
+      "Procurement",
+      "Product Development",
+      "Production",
+      "Public Relations",
+      "Research Development",
+      "Sales",
+      "Supply Chain"
+    ]
   },
   {
     "id": "4",
@@ -73,6 +127,28 @@
     "understanding": {
       "title": "Understanding Your Desired Functional Disciplines:",
       "value": "Disciplines are specific areas of expertise or roles within an industry that require distinct skills and knowledge. Choose disciplines that match your strengths, interests, and career aspirations. Consider where you can make a meaningful impact and where your skills are most valuable. Your chosen disciplines showcase your expertise and commitment to developing specialized skills within targeted areas. They highlight what sets you apart in your chosen field. Research each functional discipline thoroughly before making your selections. This will help you understand the skills required and the typical responsibilities associated with each role."
-    }
+    },
+    "question": [
+      "Aerospace",
+      "Automotive",
+      "Business Services",
+      "Commerce",
+      "Entertainment",
+      "Financial Services",
+      "Healthcare",
+      "Insurance",
+      "Investment Banking",
+      "Legal",
+      "Manufacturing",
+      "Medical",
+      "Pharmaceuticals",
+      "Retail",
+      "Telecommunications",
+      "Tourism",
+      "Transportation",
+      "Research",
+      "Food Service",
+      "Waste Management"
+    ]
   }
 ]
