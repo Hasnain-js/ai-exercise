@@ -28,8 +28,8 @@ const onSubmit = () => {
                     <input type="checkbox" class="peer hidden" :name="item.replace(' ', '-')"
                         :id="item.replace(' ', '-')" :value="item" v-model="answerValue" />
                     <label :for="item.replace(' ', '-')"
-                        class="flex flex-col justify-center border border-black/[0.12] ease-in duration-300 hover:border-teal-500 peer-checked:border-teal-400 cursor-pointer peer-checked:scale-105 rounded-xl items-center gap-y-4 p-5 z-10">
-                        <h2 class="font-medium text-md text-black">{{ item }}</h2>
+                        class="flex flex-col justify-center border border-black/[0.12] ease-in duration-300 hover:bg-teal-500 text-black hover:text-white peer-checked:text-white peer-checked:bg-teal-500 cursor-pointer peer-checked:scale-105 rounded items-center gap-y-4 p-5 z-10">
+                        <h2 class="font-medium text-md ">{{ item }}</h2>
                     </label>
                 </div>
             </div>

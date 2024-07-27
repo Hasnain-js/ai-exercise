@@ -6,21 +6,21 @@ definePageMeta({
 <template>
 	<Layout>
 		<template #header>
-			<h2 class="text-white font-semibold font-sans text-center text-4xl">
+			<h2 class="text-white font-semibold text-center text-4xl">
 				Ace Every Interview, Get Hired Faster
 			</h2>
 			<ul class="flex justify-between gap-2">
-				<li class="text-white/90 font-medium leading-relaxed font-sans text-center text-sm">
+				<li class="text-white/90 font-medium leading-relaxed text-center text-sm">
 					<img src="/images/check.svg" class="mx-auto mb-2" alt="check icon" width="24" height="24">
 					Learn how to sell yourself and easily stand out.
 				</li>
-				<li class="text-white/90 font-medium leading-relaxed font-sans text-center text-sm">
+				<li class="text-white/90 font-medium leading-relaxed text-center text-sm">
 					<img src="/images/check.svg" class="mx-auto mb-2" alt="check icon" width="24" height="24">
 
 					Know
 					exactly what to expect, and how to answer questions
 				</li>
-				<li class="text-white/90 font-medium leading-relaxed font-sans text-center text-sm">
+				<li class="text-white/90 font-medium leading-relaxed text-center text-sm">
 					<img src="/images/check.svg" class="mx-auto mb-2" alt="check icon" width="24" height="24">
 
 					Get

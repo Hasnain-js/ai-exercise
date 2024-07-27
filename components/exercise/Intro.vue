@@ -1,27 +1,27 @@
 <template>
     <div class="space-y-4">
-        <h1 class="text-black font-semibold font-sans text-2xl">
+        <!-- <h1 class="text-black font-semibold text-2xl">
             {{ intro.title }}
         </h1>
         <p>
             <span class="text-lg font-semibold mr-1">Objective:</span>{{ intro.objective }}
-        </p>
+        </p> -->
         <div class="space-y-4">
 
-            <h2 class="text-black font-semibold font-sans text-2xl">
+            <h2 class="text-black font-semibold text-2xl">
                 Instructions
             </h2>
             <ul class="space-y-2">
-                <li v-for="list, index in intro.instructions" :key="index">
-                    <span class="text-lg font-semibold mr-1">{{ list.topic }}</span>
+                <li class="text-gray-600" v-for="list, index in intro.instructions" :key="index">
+                    <span class="text-lg font-semibold mr-1 text-gray-800">{{ list.topic }}</span>
                     {{ list.value }}
                 </li>
             </ul>
         </div>
-        <h2 class="text-black font-semibold font-sans text-2xl">
+        <h2 class="text-gray-800 font-semibold text-2xl">
             {{ intro?.understanding?.title }}
         </h2>
-        <p>
+        <p class="text-gray-600">
             {{ intro?.understanding?.value }}
 
         </p>
