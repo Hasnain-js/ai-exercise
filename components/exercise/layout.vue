@@ -7,7 +7,7 @@
                         <h2 class="text-white font-semibold text-center text-4xl">
                             {{  'Exercise: ' + useRoute().params.id }}
                         </h2>
-                        <p class="text-white/90 font-medium leading-relaxed text-center text-md">
+                        <p class="text-white/80 font-normal leading-relaxed text-center text-md">
                             {{  objective }}
                         </p>
                     </div>
@@ -21,7 +21,7 @@
                 <div class="flex items-center w-full px-6 md:mt-12 mt-2 mx-auto">
                     <div class="flex-1">
                         <!-- breadcrumbs -->
-                        <h2 class="text-gray-700 uppercase font-semibold text-center text-4xl">
+                        <h2 class="text-gray-700 capitalize font-semibold text-center text-4xl">
                             {{  title }}
                         </h2>
                         <!-- <ExerciseBreadcrumb class="md:flex hidden" :links="pages" /> -->
