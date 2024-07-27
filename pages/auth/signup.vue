@@ -1,7 +1,66 @@
 <script setup>
+import axios from 'axios';
+import { Toast } from '~/utils/toast';
 definePageMeta({
 	layout: false
 })
+const formData = ref([
+	{
+		label: "Full name",
+		name: "full_name",
+		type: 'text',
+		placeholder: "John doe",
+		errorMessage: "Please enter your full name.",
+		value: "",
+		required: true,
+		isValid: false,
+	},
+	{
+		label: "Email Address",
+		name: "email",
+		type: 'email',
+		placeholder: "email@email.com",
+		errorMessage: "Please enter a correct email.",
+		value: "",
+		required: true,
+		isValid: false,
+	},
+	{
+		label: "Password",
+		name: "password",
+		type: "password",
+		placeholder: "Min 8 character",
+		errorMessage: "Password must contain at least 1 uppercase, 1 lowercase character and one digit.",
+		value: "",
+		required: true,
+		isValid: false,
+	}
+])
+const url = useRuntimeConfig().public.API_BASE_URL + 'MyInterviewAdvisor/public/api/register'
+const onSubmit = () => {
+	const data = {
+		name: formData.value[0].value,
+		email: formData.value[1].value,
+		password: formData.value[2].value,
+	}
+
+	axios.post(url, {
+		data
+	}).then(() => {
+		Toast.fire({
+			icon: 'success',
+			text: 'User Create Successfully'
+		})
+	}).catch((error) => {
+		const message = error.response.data.message
+
+		Toast.fire({
+			icon: 'error',
+			text: message
+		})
+	})
+}
+
 </script>
 <template>
 	<Layout>
@@ -33,32 +92,26 @@ definePageMeta({
 				<h1 class="mt-3 text-black font-bold text-4xl capitalize">Create Account</h1>
 			</div>
 			<div class="mt-8">
-				<form>
-					<div>
-						<label for="email" class="block mb-2 text-sm font-semibold text-black">Email
-							Address</label>
-						<input type="email" name="email" id="email" placeholder="example@example.com"
-							class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-					</div>
-
-					<div class="mt-6">
+				<form @submit.prevent="onSubmit">
+					<div class="mt-6" v-for="field in formData" :key="field.name">
 						<div class="flex justify-between mb-2">
-							<label for="password" class="text-sm font-semibold text-black">Password</label>
+							<label :for="field.name" class="text-sm font-semibold text-black">{{ field.label }}</label>
 							<!-- <a href="#"
 											class="text-sm text-gray-500 focus:text-blue-500 hover:text-blue-500 hover:underline">Forgot
 											password?</a> -->
 						</div>
 
-						<input type="password" name="password" id="password" placeholder="Min 8 character"
+						<input :type="field.type" :required="field.required" v-model="field.value" :name="field.name"
+							:id="field.name" :placeholder="field.placeholder"
 							class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
 						<p class="text-sm text-gray-500 mt-1">
-							Password must contain at least 1 uppercase, 1 lowercase character and one digit.
+							{{ field.errorMessage }}
 						</p>
 					</div>
 
-					<div class="mt-6 w-full">
-						<button
-							class="w-full px-12 py-2 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
+					<div class="mt-6 w-full flex justify-end">
+						<button type="submit"
+							class="w-fit px-12 py-2 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
 							Sign up
 						</button>
 					</div>
@@ -66,10 +119,10 @@ definePageMeta({
 				</form>
 
 				<p class="mt-6 text-sm text-center text-gray-500">Do you have an already account?
-					<NuxtLink to="/auth/signin" class="text-blue-500 focus:outline-none focus:underline hover:underline">Sign
+					<NuxtLink to="/auth/signin"
+						class="text-blue-500 focus:outline-none focus:underline hover:underline">Sign
 						in
 					</NuxtLink>
-					.
 				</p>
 			</div>
 		</template>

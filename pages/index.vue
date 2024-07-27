@@ -1,9 +1,7 @@
 <template>
 	<Layout>
-		<template #header>
-
-		</template>
 		<template #body>
+
 			<div class="flex items-center justify-center h-[calc(100vh-14rem)] w-full">
 				<div class="space-y-5 w-full">
 
@@ -16,7 +14,7 @@
 						completed these crucial tasks. Explore the exercises to uncover insights and strategies that can
 						help you shine in your next interview.
 					</p>
-					<NuxtLink to="/exercise/1"
+					<NuxtLink to="/auth/signup"
 						class="w-fit max-w-xs px-12 block py-2 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
 						Get Started
 					</NuxtLink>
