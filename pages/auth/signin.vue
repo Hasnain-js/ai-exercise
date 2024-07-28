@@ -1,7 +1,64 @@
 <script setup>
+import axios from 'axios';
+import { useUserStore } from '~/stores/useUserStore';
+import { Toast } from '~/utils/toast';
 definePageMeta({
 	layout: false
 })
+const user = useCookie('user')
+const token = useCookie('token')
+const formData = ref([
+	{
+		label: "Email Address",
+		name: "email",
+		type: 'email',
+		placeholder: "email@email.com",
+		errorMessage: "Please enter a correct email.",
+		value: "",
+		required: true,
+		isValid: false,
+	},
+	{
+		label: "Password",
+		name: "password",
+		type: "password",
+		placeholder: "Min 8 character",
+		errorMessage: "Password must contain at least 1 uppercase, 1 lowercase character and one digit.",
+		value: "",
+		required: true,
+		isValid: false,
+	}
+])
+const url = useRuntimeConfig().public.API_BASE_URL + 'MyInterviewAdvisor/public/api/login'
+const onSubmit = () => {
+	const data = new FormData()
+		data.append("email", formData.value[0].value),
+		data.append("password", formData.value[1].value),
+
+
+		axios(url, {
+			method: 'POST',
+			headers: {
+				...useRequestHeaders()
+			},
+			data: data
+		}).then( async (res) => {
+			await Toast.fire({
+				icon: 'success',
+				text: res.data?.message
+			})
+			user.value = res.data.user
+			token.value = res.data.token
+			useRouter().push("/exercise/1")
+		}).catch((error) => {
+			const message = error.response?.data?.message
+			Toast.fire({
+				icon: 'error',
+				text: message
+			})
+		})
+}
+
 </script>
 <template>
 	<Layout>
@@ -23,28 +80,24 @@ definePageMeta({
 				<h1 class="mt-3 text-black font-bold text-4xl capitalize">Sign in</h1>
 			</div>
 			<div class="mt-8">
-				<form>
-					<div>
-						<label for="email" class="block mb-2 text-sm font-semibold text-black">Email
-							Address</label>
-						<input type="email" name="email" id="email" placeholder="example@example.com"
-							class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-					</div>
-
-					<div class="mt-6">
+				<form @submit.prevent="onSubmit">
+					<div v-for="field in formData" :key="field.name" class="mt-6">
 						<div class="flex justify-between mb-2">
-							<label for="password" class="text-sm font-semibold text-black">Password</label>
-							<a href="#"
+							<label :for="field.name" class="text-sm font-semibold text-black">{{ field.label }}</label>
+							<!-- <a href="#"
 								class="text-sm text-gray-500 focus:text-blue-500 hover:text-blue-500 hover:underline">Forgot
-								password?</a>
+								password?</a> -->
 						</div>
-
-						<input type="password" name="password" id="password" placeholder="Your Password"
+						<input :type="field.type" :required="field.required" v-model="field.value" :name="field.name"
+							:id="field.name" :placeholder="field.placeholder"
 							class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+						<p class="text-sm text-gray-500 mt-1">
+							{{ field.errorMessage }}
+						</p>
 					</div>
 
 					<div class="mt-6 w-full">
-						<button
+						<button type="submit"
 							class="w-fit block ml-auto px-12 py-2 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
 							Sign in
 						</button>

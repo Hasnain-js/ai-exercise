@@ -38,27 +38,32 @@ const formData = ref([
 ])
 const url = useRuntimeConfig().public.API_BASE_URL + 'MyInterviewAdvisor/public/api/register'
 const onSubmit = () => {
-	const data = {
-		name: formData.value[0].value,
-		email: formData.value[1].value,
-		password: formData.value[2].value,
-	}
+	const data = new FormData()
+		data.append("name", formData.value[0].value),
+		data.append("email", formData.value[1].value),
+		data.append("password", formData.value[2].value),
 
-	axios.post(url, {
-		data
-	}).then(() => {
-		Toast.fire({
-			icon: 'success',
-			text: 'User Create Successfully'
-		})
-	}).catch((error) => {
-		const message = error.response.data.message
 
-		Toast.fire({
-			icon: 'error',
-			text: message
+		axios(url, {
+			method: 'POST',
+			headers: {
+				...useRequestHeaders()
+			},
+			data: data
+		}).then( async() => {
+			await Toast.fire({
+				icon: 'success',
+				text: 'User Create Successfully'
+			})
+			useRouter().push("/auth/signin")
+		}).catch((error) => {
+			const message = error.response.data.message
+
+			Toast.fire({
+				icon: 'error',
+				text: message
+			})
 		})
-	})
 }
 
 </script>
