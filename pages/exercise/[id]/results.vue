@@ -1,5 +1,5 @@
 <script setup>
-const { data: exerciseData, pending: isLoading } = useFetch(`/api/exercise/${useRoute().params.id}`)
+const exerciseData = fetchExercise(useRoute().params.id)
 const answerValue = ref([])
 const route = useRoute()
 onMounted(() => {
@@ -12,7 +12,7 @@ onMounted(() => {
 })
 </script>
 <template>
-    <ExerciseLayout v-if="!isLoading" :title="exerciseData.title" :objective="exerciseData.objective">
+    <ExerciseLayout :title="exerciseData.title" :objective="exerciseData.objective">
         <div
             class="flex flex-col justify-between md:min-h-[calc(100vh-176px)] min-h-[90vh] overflow-y-scroll no-scrollbar">
             <div class="p-4">

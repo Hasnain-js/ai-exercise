@@ -1,6 +1,6 @@
 <script setup>
 import Swal from 'sweetalert2'
-const { data: exerciseData, pending: isLoading } = useFetch(`/api/exercise/${useRoute().params.id}`)
+const exerciseData = fetchExercise(useRoute().params.id)
 const answerValue = ref([]);
 const onSubmit = () => {
     if (answerValue.value.length >= 3 && answerValue.value.length <= 6) {
@@ -20,7 +20,7 @@ const onSubmit = () => {
 
 </script>
 <template>
-    <ExerciseLayout v-if="!isLoading" :title="exerciseData.title" :objective="exerciseData.objective">
+    <ExerciseLayout :title="exerciseData.title" :objective="exerciseData.objective">
         <form @submit.prevent="onSubmit"
             class="flex flex-col justify-between md:min-h-[calc(100vh-176px)] min-h-[90vh] overflow-y-scroll no-scrollbar">
             <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 p-4">
