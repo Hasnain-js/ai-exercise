@@ -20,8 +20,13 @@
                     </div>
                 </div>
             </div>
-            <div class="overflow-y-auto flex-grow z-10">
-                <div class="flex items-center w-full px-6 md:mt-12 mt-2 mx-auto">
+            <div class="overflow-y-auto flex-grow z-10 relative">
+                <button @click="logout()" class="absolute flex items-center gap-2 shadow top-2 right-2 text-md z-10 w-fit ml-auto px-3 py-1.5 tracking-wide font-light text-black transition-colors duration-300 transform bg-white rounded-lg focus:outline-none focus:ring focus:ring-gray-400 focus:ring-opacity-50">
+                        Logout
+                    <img src="/images/logout.png" width="16" height="16" alt="logout button">
+                </button>
+
+                <div class="flex items-center w-full px-6 mt-14 mx-auto">
                     <div class="flex-1">
                         <!-- breadcrumbs -->
                         <h2 class="text-gray-700 capitalize font-semibold text-center text-4xl">
