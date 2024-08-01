@@ -6,10 +6,7 @@ export default defineNuxtConfig({
 			API_BASE_URL: 'https://wrapupbybilal.com/'
 		}
 	},
-	modules: [ '@pinia/nuxt', '@nuxtjs/tailwindcss'],
-	pinia: {
-		storesDirs: ['./stores/**'],
-	  },
+	modules: [ '@pinia/nuxt','@pinia-plugin-persistedstate/nuxt', '@nuxtjs/tailwindcss'],
 	css: ['~/assets/css/main.css', '~/assets/css/toast.css'],
 	devServer: {
 		port: 8000,

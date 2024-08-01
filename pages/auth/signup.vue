@@ -1,9 +1,6 @@
 <script setup>
 import axios from 'axios';
 import { Toast } from '~/utils/toast';
-definePageMeta({
-	layout: false
-})
 const formData = ref([
 	{
 		label: "Full name",

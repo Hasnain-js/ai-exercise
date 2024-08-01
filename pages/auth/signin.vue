@@ -1,12 +1,7 @@
 <script setup>
 import axios from 'axios';
-import { useUserStore } from '~/stores/useUserStore';
 import { Toast } from '~/utils/toast';
-definePageMeta({
-	layout: false
-})
-const user = useCookie('user')
-const token = useCookie('token')
+
 const formData = ref([
 	{
 		label: "Email Address",
@@ -47,8 +42,10 @@ const onSubmit = () => {
 				icon: 'success',
 				text: res.data?.message
 			})
-			user.value = res.data.user
-			token.value = res.data.token
+			setCookie("access_token", res.data.token, 365);
+			useUserStore().data = res.data.user
+			useUserStore().token = res.data.token
+			useUserStore().isAuthenticated = true
 			useRouter().push("/exercise/1")
 		}).catch((error) => {
 			const message = error.response?.data?.message

@@ -1,4 +1,7 @@
 <script setup>
+definePageMeta({
+    middleware: ['auth']
+})
 const exerciseData = fetchExercise(useRoute().params.id)
 </script>
 <template>
