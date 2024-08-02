@@ -36,7 +36,7 @@ const formData = ref([
 const url = useRuntimeConfig().public.API_BASE_URL + 'MyInterviewAdvisor/public/api/register'
 const onSubmit = () => {
 	const data = new FormData()
-		data.append("name", formData.value[0].value),
+	data.append("name", formData.value[0].value),
 		data.append("email", formData.value[1].value),
 		data.append("password", formData.value[2].value),
 
@@ -47,7 +47,7 @@ const onSubmit = () => {
 				...useRequestHeaders()
 			},
 			data: data
-		}).then( async() => {
+		}).then(async () => {
 			await Toast.fire({
 				icon: 'success',
 				text: 'User Create Successfully'
@@ -90,42 +90,46 @@ const onSubmit = () => {
 			</ul>
 		</template>
 		<template #body>
-			<div class="text-center">
-				<h1 class="mt-3 text-black font-bold text-4xl capitalize">Create Account</h1>
-			</div>
-			<div class="mt-8">
-				<form @submit.prevent="onSubmit">
-					<div class="mt-6" v-for="field in formData" :key="field.name">
-						<div class="flex justify-between mb-2">
-							<label :for="field.name" class="text-sm font-semibold text-black">{{ field.label }}</label>
-							<!-- <a href="#"
+			<div class="max-w-lg mx-auto">
+
+				<div class="text-center">
+					<h1 class="mt-3 text-black font-bold text-4xl capitalize">Create Account</h1>
+				</div>
+				<div class="mt-8">
+					<form @submit.prevent="onSubmit">
+						<div class="mt-6" v-for="field in formData" :key="field.name">
+							<div class="flex justify-between mb-2">
+								<label :for="field.name" class="text-sm font-semibold text-black">{{ field.label
+									}}</label>
+								<!-- <a href="#"
 											class="text-sm text-gray-500 focus:text-blue-500 hover:text-blue-500 hover:underline">Forgot
 											password?</a> -->
+							</div>
+
+							<input :type="field.type" :required="field.required" v-model="field.value"
+								:name="field.name" :id="field.name" :placeholder="field.placeholder"
+								class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+							<p class="text-sm text-gray-500 mt-1">
+								{{ field.errorMessage }}
+							</p>
 						</div>
 
-						<input :type="field.type" :required="field.required" v-model="field.value" :name="field.name"
-							:id="field.name" :placeholder="field.placeholder"
-							class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
-						<p class="text-sm text-gray-500 mt-1">
-							{{ field.errorMessage }}
-						</p>
-					</div>
+						<div class="mt-6 w-full flex justify-end">
+							<button type="submit"
+								class="w-fit px-12 py-2 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
+								Sign up
+							</button>
+						</div>
 
-					<div class="mt-6 w-full flex justify-end">
-						<button type="submit"
-							class="w-fit px-12 py-2 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
-							Sign up
-						</button>
-					</div>
+					</form>
 
-				</form>
-
-				<p class="mt-6 text-sm text-center text-gray-500">Do you have an already account?
-					<NuxtLink to="/auth/signin"
-						class="text-blue-500 focus:outline-none focus:underline hover:underline">Sign
-						in
-					</NuxtLink>
-				</p>
+					<p class="mt-6 text-sm text-center text-gray-500">Do you have an already account?
+						<NuxtLink to="/auth/signin"
+							class="text-blue-500 focus:outline-none focus:underline hover:underline">Sign
+							in
+						</NuxtLink>
+					</p>
+				</div>
 			</div>
 		</template>
 	</Layout>
