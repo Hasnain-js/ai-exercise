@@ -2,15 +2,14 @@
 definePageMeta({
     middleware: ['auth']
 })
-const exerciseData = fetchExercise(useRoute().params.id)
-const answerValue = ref([])
 const route = useRoute()
+const exerciseData = fetchExercise(route.params.id)
+const answerValue = ref([])
 onMounted(() => {
-    if (route.query.answer) {
-        const answerString = route.query.answer.split(',')
-        answerValue.value = answerString
+    if (useExerciseStore().exercise.length > 0) {
+         answerValue.value = useExerciseStore().exercise.find(item => item.id == route.params.id)?.selected
     } else {
-        useRouter().push(`/exercise/${useRoute().params.id}/exercise`)
+        useRouter().push(`/exercise/${route.params.id}/exercise`)
     }
 })
 </script>
