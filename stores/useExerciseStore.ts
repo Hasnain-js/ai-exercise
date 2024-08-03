@@ -8,11 +8,11 @@ interface exerciseData {
 }
 export const useExerciseStore = defineStore("exercise", {
   state: () => ({
-    exercise: [{} as exerciseData],
+    exercise: [] as Array<exerciseData>,
   }),
   actions: {
     eraseExerciseData() {
-      this.exercise = [{} as exerciseData];
+      this.exercise = [];
     },
     // An action to set exercise data
     setExerciseData(data: exerciseData) {
