@@ -7,7 +7,7 @@ const exerciseData = fetchExercise(route.params.id)
 const answerValue = ref([])
 onMounted(() => {
     if (useExerciseStore().exercise.length > 0) {
-         answerValue.value = useExerciseStore().exercise.find(item => item.id == route.params.id)?.selected
+        answerValue.value = useExerciseStore().exercise.find(item => item.id == route.params.id)?.selected
     } else {
         useRouter().push(`/exercise/${route.params.id}/exercise`)
     }
@@ -18,14 +18,21 @@ onMounted(() => {
         <div
             class="flex flex-col justify-between md:min-h-[calc(100vh-176px)] min-h-[90vh] overflow-y-scroll no-scrollbar">
             <div class="p-4">
-                <h2 class="text-black text-2xl capitalize font-bold">
-                    Your answers:
+                <h2 class="text-slate-700 text-2xl capitalize font-bold">
+                    Your Selected:
                 </h2>
-                <ul class="list-decimal list-inside space-y-3 mt-6 text-sm text-gray-500">
-                    <li v-for="ans in answerValue" :key="'answer-value' + ans">
-                        {{ ans }}
+                <ol class="items-center w-full sm:flex  mt-5 flex-wrap">
+                    <li v-for="ans, index in answerValue" :key="'answer-value' + ans"
+                        class="flex items-center text-slate-800 space-x-2.5 p-2 rtl:space-x-reverse lg:w-1/4">
+                        <span
+                            class="flex items-center justify-center w-8 h-8 border border-stone-300 rounded-full shrink-0">
+                            {{ index + 1 }}
+                        </span>
+                        <h3 class="font-medium leading-tight">{{ ans }}</h3>
                     </li>
-                </ul>
+                </ol>
+
+
             </div>
             <NuxtLink v-if="useRoute().params.id != 4" :to="`/exercise/${Number(useRoute().params.id) + 1}`"
                 class="w-fit block ml-auto my-4 px-11 sticky bottom-0 py-3 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">

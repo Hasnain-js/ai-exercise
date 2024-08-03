@@ -13,17 +13,20 @@
                     </div>
                     <img src="/images/auth-bg.png" alt="blue background image"
                         class="block w-full h-full absolute inset-0 ">
-                    <div
-                        class="absolute right-0 left-0 bottom-0 w-full">
+                    <div class="absolute right-0 left-0 bottom-0 w-full">
 
-                        <img src="/images/learning-girl.svg" alt="man and women image" class="object-right-bottom  max-w-xs h-auto box-border p-0 border-none">
+                        <img src="/images/learning-girl.svg" alt="man and women image"
+                            class="object-right-bottom  max-w-xs h-auto box-border p-0 border-none">
                     </div>
                 </div>
             </div>
             <div class="overflow-y-auto flex-grow z-10 relative">
-                <button @click="logout()" class="absolute flex items-center gap-2 shadow top-2 right-2 text-md z-10 w-fit ml-auto px-3 py-1.5 tracking-wide font-light text-black transition-colors duration-300 transform bg-white rounded-lg focus:outline-none focus:ring focus:ring-gray-400 focus:ring-opacity-50">
+                <button title="logout" click="logout()"
+                    class="absolute flex items-center gap-2 shadow top-2 right-2 text-md z-10 w-fit ml-auto px-2 py-1.5 tracking-wide font-light text-black transition-colors duration-300 transform bg-white rounded-lg focus:outline-none focus:ring focus:ring-gray-400 focus:ring-opacity-50">
+                    <span class="md:hidden inline-block">
                         Logout
-                    <img src="/images/logout.png" width="16" height="16" alt="logout button">
+                    </span>
+                    <img src="/images/logout.png" width="16" height="16" class="md:w-6 md:h-6 w-4 h-4" alt="logout button">
                 </button>
 
                 <div class="flex items-center w-full px-6 mt-14 mx-auto">
