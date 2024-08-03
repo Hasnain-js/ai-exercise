@@ -75,6 +75,7 @@ const onSubmit = () => {
             title: 'Please!',
             text: answerValue.value.length < 4 ? 'Please select any minimum 3 options' : 'Please select any maximum 6 options',
             icon: 'warning',
+            confirmButtonColor: '#14b8a6'
         })
     }
 };
