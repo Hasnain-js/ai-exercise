@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="overflow-y-auto flex-grow z-10 relative">
-                <button title="logout" click="logout()"
+                <button title="logout" @click="logout()"
                     class="absolute flex items-center gap-2 shadow top-2 right-2 text-md z-10 w-fit ml-auto px-2 py-1.5 tracking-wide font-light text-black transition-colors duration-300 transform bg-white rounded-lg focus:outline-none focus:ring focus:ring-gray-400 focus:ring-opacity-50">
                     <span class="md:hidden inline-block">
                         Logout
