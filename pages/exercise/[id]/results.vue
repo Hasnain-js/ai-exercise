@@ -19,11 +19,11 @@ onMounted(() => {
             class="flex flex-col justify-between md:min-h-[calc(100vh-176px)] min-h-[90vh] overflow-y-scroll no-scrollbar">
             <div class="p-4">
                 <h2 class="text-slate-700 text-2xl capitalize font-bold">
-                    Your Selected:
+                    {{ exerciseData.title }} Selection:
                 </h2>
                 <ol class="items-center w-full sm:flex  mt-5 flex-wrap">
                     <li v-for="ans, index in answerValue" :key="'answer-value' + ans"
-                        class="flex items-center text-slate-800 space-x-2.5 p-2 rtl:space-x-reverse lg:w-1/4">
+                        class="flex items-center text-slate-800 space-x-2.5 px-2 md:py-5 py-2 rtl:space-x-reverse lg:w-1/4">
                         <span
                             class="flex items-center justify-center w-8 h-8 border border-stone-300 rounded-full shrink-0">
                             {{ index + 1 }}

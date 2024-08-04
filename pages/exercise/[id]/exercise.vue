@@ -101,6 +101,8 @@ const onSubmit = () => {
                         :name="field.name" :id="field.name" :placeholder="field.placeholder" v-model="field.value" />
                 </label>
             </div>
+            <p class="text-gray-600 p-4" v-html="exerciseData.undefinedText">
+            </p>
             <button type="submit"
                 class="w-fit block ml-auto my-4 px-11 sticky bottom-0 py-3 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
                 Submit
