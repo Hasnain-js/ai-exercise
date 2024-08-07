@@ -2,20 +2,19 @@
 definePageMeta({
     middleware: ['auth']
 })
-const route = useRoute()
-const answerValue = ref([])
-onMounted(() => {
-    if (useExerciseStore().exercise.length > 0) {
-        answerValue.value = useExerciseStore().exercise
-    } else {
-        useRouter().push(`/exercise/${route.params.id}/exercise`)
-    }
+const exercises = ref(null)
+const titles = ['Talents', 'Top Skills', 'Disciplines', 'Industries']
+onMounted(async () => {
+    getUserData().then((res) => {
+        exercises.value = res.exercises
+    }).catch(() => {
+        useRouter().push(`/`)
+    })
 })
 
 const maxSelections = computed(() => {
-    if (useExerciseStore().exercise.length > 0) {
-
-        return Math.max(...useExerciseStore().exercise.map(item => item.selected.length));
+    if (exercises.value) {
+        return Math.max(...Object.values(exercises.value).map(item => Array.isArray(item.selected) ? item.selected.length : 0));
     }
 })
 </script>
@@ -31,17 +30,17 @@ const maxSelections = computed(() => {
                     <table class="rounded w-full">
                         <thead>
                             <tr>
-                                <th :id="result.id" :key="result.id" v-for="result in answerValue"
+                                <th :id="index" :key="index" v-for="result, index in titles"
                                     class="text-start text-gray-700 border md:text-base text-xs p-4 bg-gray-50">{{
-                                    result.title }}</th>
+                                        result }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="index in maxSelections" :key="index">
-                                <td v-for="result in answerValue"
+                                <td v-for="(exercise, key) in exercises"
                                     class="text-start text-gray-900 border whitespace-nowrap md:text-base text-xs p-4 bg-white"
-                                    :key="result.id">
-                                    {{ result.selected[index - 1] || '' }}
+                                    :key="key">
+                                    {{ exercise.selected[index - 1] || '' }}
                                 </td>
                             </tr>
                         </tbody>
@@ -54,14 +53,20 @@ const maxSelections = computed(() => {
                     <table class="rounded w-full">
                         <thead>
                             <tr>
-                                <th class="text-start text-gray-700 border md:text-base text-xs p-4 bg-gray-50">Title</th>
-                                <th class="text-start text-gray-700 border md:text-base text-xs p-4 bg-gray-50">Narative</th>
+                                <th class="text-start text-gray-700 border md:text-base text-xs p-4 bg-gray-50">Title
+                                </th>
+                                <th class="text-start text-gray-700 border md:text-base text-xs p-4 bg-gray-50">Narative
+                                </th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr :key="result.id" v-for="result in answerValue">
-                                <th class="text-start text-gray-900 border whitespace-nowrap  md:text-sm text-xs p-4 bg-white">{{ result.title }}</th>
-                                <th class="text-start text-gray-900 border whitespace-nowrap md:text-sm text-xs p-4 bg-white">{{ result.narative }}</th>
+                        <tbody v-if="exercises" >
+                            <tr :key="index" v-for="result, index in titles">
+                                <th
+                                    class="text-start text-gray-900 border whitespace-nowrap  md:text-sm text-xs p-4 bg-white">
+                                    {{ result }}</th>
+                                <td
+                                    class="text-start text-gray-900 border whitespace-nowrap md:text-sm text-xs p-4 bg-white">
+                                    {{ exercises[`exercise${index + 1}`].narrative }}</td>
                             </tr>
                         </tbody>
                     </table>

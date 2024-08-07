@@ -5,12 +5,12 @@ definePageMeta({
 const route = useRoute()
 const exerciseData = fetchExercise(route.params.id)
 const answerValue = ref([])
-onMounted(() => {
-    if (useExerciseStore().exercise.length > 0) {
-        answerValue.value = useExerciseStore().exercise.find(item => item.id == route.params.id)?.selected
-    } else {
+onMounted( async() => {
+    getUserData().then((res) => {
+        answerValue.value = res.exercises[`exercise${route.params.id}`].selected
+    }).catch(() => {
         useRouter().push(`/exercise/${route.params.id}/exercise`)
-    }
+    })
 })
 </script>
 <template>
@@ -34,7 +34,7 @@ onMounted(() => {
 
 
             </div>
-            <NuxtLink :to=" useRoute().params.id != 4 ?  `/exercise/${Number(useRoute().params.id) + 1}` : '/results'"
+            <NuxtLink :to="useRoute().params.id != 4 ?  `/exercise/${Number(useRoute().params.id) + 1}` : '/results'"
                 class="w-fit block ml-auto my-4 px-11 sticky bottom-0 py-3 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
                 {{ useRoute().params.id != 4 ?  'Next' : 'See your results'}}
             </NuxtLink>

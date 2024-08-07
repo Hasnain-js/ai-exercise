@@ -46,32 +46,28 @@ const numberOfValuesExist = computed(() => {
 
 const exerciseData = fetchExercise(useRoute().params.id)
 const answerValue = ref([]);
-const onSubmit = () => {
+const onSubmit = async () => {
     if ((answerValue.value.length + numberOfValuesExist.value) >= 3 && (answerValue.value.length + numberOfValuesExist.value) <= 6) {
         const undefinedAns = userDefinedInput.value.map(input => input.value).filter(input => input != '')
         const answer = [...answerValue.value, ...undefinedAns];
-        console.log(useExerciseStore().exercise.some(exercise => exercise.id === useRoute().params.id))
-        if (useExerciseStore().exercise.some(exercise => exercise.id === useRoute().params.id)) {
-            const findExercise = useExerciseStore().exercise.find(exercise => exercise.id === useRoute().params.id)
-            findExercise.id = useRoute().params.id
-            findExercise.title = exerciseData.title
-            findExercise.selected = answer
-            findExercise.createdAt = new Date().toGMTString()
-        } else {
-
-            useExerciseStore().setExerciseData({
-                id: useRoute().params.id,
-                title: exerciseData.title,
-                selected: answer,
-                narative: '',
-                createdAt: new Date().toGMTString()
-            })
+        const ApiData = {
+            step: useRoute().params.id,
+            exercises: {
+                [`exercise${useRoute().params.id}`]: {
+                    selected: answer,
+                },
+            }
         }
 
-        console.log(useExerciseStore().exercise)
-        navigateTo({
-            path: `/exercise/${useRoute().params.id}/results`,
+        await updateSteps(ApiData).then((res) => {
+            if (res.exercises) {
+                navigateTo({
+                    path: `/exercise/${useRoute().params.id}/results`,
+                })
+            }
+
         })
+
     } else {
         Swal.fire({
             title: 'Please!',

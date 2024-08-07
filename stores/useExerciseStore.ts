@@ -2,10 +2,9 @@ import { defineStore } from "pinia";
 
 interface exerciseData {
   id: string;
-  title: '';
-  selected: Array<string>;
-  narative: string;
-  createdAt: string;
+  step: string,
+  title: string;
+  exercises: object,
 }
 export const useExerciseStore = defineStore("exercise", {
   state: () => ({
