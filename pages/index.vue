@@ -33,7 +33,7 @@
 							powerful interactive exercise.
 						</p>
 						<p class="text-black/60 font-medium leading-relaxed">
-							By thoughtfully selecting their unique “Skills” and “Traits” elements, they instantly
+							By thoughtfully selecting their unique “Skills” and “Talents” elements, they instantly
 							infused authenticity into their professional interview narrative.
 						</p>
 						<p class="text-black/60 font-medium leading-relaxed">
