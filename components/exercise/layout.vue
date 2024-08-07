@@ -3,11 +3,11 @@
         <div class="flex overflow-hidden h-screen">
             <div class="z-0 sticky h-screen w-1/3 shrink-0 md:block hidden">
                 <div class="block overflow-hidden relative w-full h-full">
-                    <div class="z-10 relative mt-12 px-5 space-y-5 h-1/2 flex items-center justify-center flex-col">
-                        <h2 class="text-white font-semibold text-center text-4xl">
+                    <div class="z-10 relative px-5 space-y-5 h-1/2 flex items-center justify-center flex-col">
+                        <h2 v-if="useRoute().params.id" class="text-white font-semibold text-center text-4xl">
                             {{ 'Exercise: ' + useRoute().params.id }}
                         </h2>
-                        <p class="text-white/80 font-normal leading-relaxed text-center text-md">
+                        <p class="text-white/80 font-normal leading-relaxed text-center text-sm">
                             {{ objective }}
                         </p>
                     </div>
@@ -29,10 +29,10 @@
                     <img src="/images/logout.png" width="16" height="16" class="md:w-6 md:h-6 w-4 h-4" alt="logout button">
                 </button>
 
-                <div class="flex items-center w-full px-6 mt-14 mx-auto">
-                    <div class="flex-1">
+                <div class="flex items-center px-6 mt-14 mx-auto overflow-hidden ">
+                    <div class="flex-1 overflow-auto">
                         <!-- breadcrumbs -->
-                        <h2 class="text-gray-700 capitalize font-semibold text-center text-4xl">
+                        <h2 class="text-gray-700 capitalize font-semibold text-center md:text-4xl text-2xl">
                             {{ title }}
                         </h2>
                         <!-- <ExerciseBreadcrumb class="md:flex hidden" :links="pages" /> -->

@@ -11,31 +11,31 @@ const userDefinedInput = ref([
         placeholder: 'User Defined',
         value: '',
     },
-    {
-        name: 'userDefined-2',
-        placeholder: 'User Defined',
-        value: '',
-    },
-    {
-        name: 'userDefined-3',
-        placeholder: 'User Defined',
-        value: '',
-    },
-    {
-        name: 'userDefined-4',
-        placeholder: 'User Defined',
-        value: '',
-    },
-    {
-        name: 'userDefined-5',
-        placeholder: 'User Defined',
-        value: '',
-    },
-    {
-        name: 'userDefined-6',
-        placeholder: 'User Defined',
-        value: '',
-    }
+    //  {
+    //     name: 'userDefined-2',
+    //     placeholder: 'User Defined',
+    //     value: '',
+    // },
+    // {
+    //     name: 'userDefined-3',
+    //     placeholder: 'User Defined',
+    //     value: '',
+    // },
+    // {
+    //     name: 'userDefined-4',
+    //     placeholder: 'User Defined',
+    //     value: '',
+    // },
+    // {
+    //     name: 'userDefined-5',
+    //     placeholder: 'User Defined',
+    //     value: '',
+    // },
+    // {
+    //     name: 'userDefined-6',
+    //     placeholder: 'User Defined',
+    //     value: '',
+    // }
 ])
 
 
@@ -54,12 +54,14 @@ const onSubmit = () => {
         if (useExerciseStore().exercise.some(exercise => exercise.id === useRoute().params.id)) {
             const findExercise = useExerciseStore().exercise.find(exercise => exercise.id === useRoute().params.id)
             findExercise.id = useRoute().params.id
+            findExercise.title = exerciseData.title
             findExercise.selected = answer
             findExercise.createdAt = new Date().toGMTString()
         } else {
 
             useExerciseStore().setExerciseData({
                 id: useRoute().params.id,
+                title: exerciseData.title,
                 selected: answer,
                 narative: '',
                 createdAt: new Date().toGMTString()
@@ -67,7 +69,7 @@ const onSubmit = () => {
         }
 
         console.log(useExerciseStore().exercise)
-        useRouter().push({
+        navigateTo({
             path: `/exercise/${useRoute().params.id}/results`,
         })
     } else {

@@ -23,7 +23,7 @@ onMounted(() => {
                 </h2>
                 <ol class="items-center w-full sm:flex  mt-5 flex-wrap">
                     <li v-for="ans, index in answerValue" :key="'answer-value' + ans"
-                        class="flex items-center text-slate-800 space-x-2.5 px-2 md:py-5 py-2 rtl:space-x-reverse lg:w-1/4">
+                        class="flex items-center text-slate-800 space-x-2.5 px-2 md:py-3 py-2 rtl:space-x-reverse lg:w-1/4">
                         <span
                             class="flex items-center justify-center w-8 h-8 border border-stone-300 rounded-full shrink-0">
                             {{ index + 1 }}
@@ -34,9 +34,9 @@ onMounted(() => {
 
 
             </div>
-            <NuxtLink v-if="useRoute().params.id != 4" :to="`/exercise/${Number(useRoute().params.id) + 1}`"
+            <NuxtLink :to=" useRoute().params.id != 4 ?  `/exercise/${Number(useRoute().params.id) + 1}` : '/results'"
                 class="w-fit block ml-auto my-4 px-11 sticky bottom-0 py-3 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
-                Next
+                {{ useRoute().params.id != 4 ?  'Next' : 'See your results'}}
             </NuxtLink>
         </div>
     </ExerciseLayout>

@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 
 interface exerciseData {
   id: string;
+  title: '';
   selected: Array<string>;
   narative: string;
   createdAt: string;
