@@ -40,7 +40,7 @@
 							By narrowing their selection of “Disciplines” (departments within an organization ...
 							Example: Marketing, Finance, Legal, Accounting departments etc.) Zach and Jessica
 							conveyed their confidence and passion for applying their efforts to specific functional
-								areas within the company.
+							areas within the company.
 						</p>
 						<p class="text-black/60 font-medium leading-relaxed">
 							Finally, by carefully selecting their “Targeted Industries”, and tailoring their
@@ -54,11 +54,11 @@
 							Because they effectively communicated their personal and professional interview narrative,
 							Zach and Jessica demonstrated that they are not looking for just ANY job ... they
 							made it clear that they wanted THIS JOB, with THIS COMPANY on THIS
-								TEAM.
+							TEAM.
 						</p>
 						<p class="text-black/60 font-medium leading-relaxed">
 							The following is an example of how another one of our students (Sarah) made element
-								selections on all 4 interactive grids that became the building blocks of her
+							selections on all 4 interactive grids that became the building blocks of her
 							personal
 							and professional brand narrative.
 						</p>
@@ -66,7 +66,7 @@
 							It is important to note that a narrative is not static. It is not carved in stone. Based on
 							the job specifications, it is essential to be both flexible and strategic enough to
 							rotate
-								element sections to be most appropriate to the position. For example: When
+							element sections to be most appropriate to the position. For example: When
 							interviewing for
 							a job in Retail we suggest that you <span class="underline">only identify Retail as a
 								desired industry
@@ -78,7 +78,10 @@
 						</p>
 					</div>
 
-
+					<NuxtLink :to="useUserStore().isAuthenticated ? '/exercise/1' : '/auth/signup'"
+						class="w-fit max-w-xs  mt-3 px-12 md:hidden block py-2 tracking-wide relative text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
+						Get Started
+					</NuxtLink>
 				</div>
 			</div>
 
