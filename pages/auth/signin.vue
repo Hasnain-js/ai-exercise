@@ -60,15 +60,15 @@ const onSubmit = () => {
 <template>
 	<Layout>
 		<template #header>
-			<h2 class="text-white font-semibold text-center text-4xl">
+			<h2 class="text-white font-semibold text-center text-3xl">
 				Ace your interview and win the job!
 			</h2>
-			<p class="text-white/90 font-medium leading-relaxed text-center text-sm">
+			<p class="text-white/90 font-medium leading-relaxed text-center text-xs">
 				We've seen it time and again. The candidates who excel in job interviews are the ones who
 				prepare. Preparation doesn't mean reading an article or two. It means being intentional
 				about crafting your answers, designing your examples, and above all, practicing.
 			</p>
-			<p class="text-white/90 font-medium leading-relaxed text-center text-sm">
+			<p class="text-white/90 font-medium leading-relaxed text-center text-xs">
 				We've made it simple.
 			</p>
 		</template>

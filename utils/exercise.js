@@ -35,7 +35,7 @@ const exerciseData = [
       "Humble",
       "Tenacious"
     ],
-    "undefinedText": `<b>User Defined</b> elements can be anything (e.g. accepting, adaptable, broadminded, ...)`
+    "undefinedText": `User Defined elements can be anything (e.g. accepting, adaptable, broadminded, ...)`
   },
   {
     "id": "2",
@@ -73,7 +73,7 @@ const exerciseData = [
       "Teamwork",
       "Time Management"
     ],
-    "undefinedText": `<b>User Defined</b> elements can include any <b>LEARNED</b> tangible skills that you have developed, used and refined in school, during your summer jobs or internships`
+    "undefinedText": `User Defined elements can include any LEARNED tangible skills that you have developed, used and refined in school, during your summer jobs or internships`
   },
   {
     "id": "3",
@@ -111,12 +111,12 @@ const exerciseData = [
       "Sales",
       "Supply Chain"
     ],
-    "undefinedText": `Understanding the concept of <b>Desired Functional Disciplines
+    "undefinedText": `Understanding the concept of Desired Functional Disciplines
 is critical because it expands your career “consideration
-set” or what we are calling your “Career Aperture”.</b> <br> For example; While your <b>Desired Industry</b> may be <b>Marketing</b>
-.... your <b>preferred Organizational Discipline WITHIN the
-<b>Marketing industry may be Accounting / Finance , Human
-Resources or Sales, etc.</b>`
+set” or what we are calling your “Career Aperture”. <br> For example; While your Desired Industry may be Marketing
+.... your preferred Organizational Discipline WITHIN the
+Marketing industry may be Accounting / Finance , Human
+Resources or Sales, etc.`
   },
   {
     "id": "4",
@@ -158,7 +158,7 @@ Resources or Sales, etc.</b>`
       "Food Service",
       "Waste Management"
     ],
-    "undefinedText": `<b>User Defined</b> elements can include Industries like; Non-Profit, Medical,
+    "undefinedText": `User Defined elements can include Industries like; Non-Profit, Medical,
 Healthcare, Tourism, Aerospace or any large chunk of the commercial or Not-for
 Profit industries`
   }

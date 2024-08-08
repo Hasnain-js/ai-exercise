@@ -9,7 +9,7 @@
                     <img src="/images/auth-bg.png" alt="blue background image"
                         class="block w-full h-full absolute inset-0 ">
                     <img src="/images/man-women.png" alt="man and women image"
-                        class="absolute left-0 bottom-0 box-border  p-0 border-none m-0 block  w-full h-auto">
+                        class="absolute left-0 bottom-0 box-border p-0 border-none m-0 block object-contain w-full h-1/2">
                 </div>
             </div>
             <div class="overflow-auto h-screen flex-grow z-10">

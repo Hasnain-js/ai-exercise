@@ -1,7 +1,7 @@
 <template>
 	<Layout>
 		<template #header>
-			<div class="text-center pt-12">
+			<div class="text-center">
 				<h1 class="text-white font-bold text-3xl">
 					Unlock Your Interview Success!
 				</h1>
