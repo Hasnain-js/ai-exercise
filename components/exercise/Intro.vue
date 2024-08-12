@@ -22,8 +22,11 @@
             {{ intro?.understanding?.title }}
         </h2>
         <p class="text-gray-600">
-            {{ intro?.understanding?.value }}
-
+            <span :class="isReadMore ? 'line-clamp-none' : 'line-clamp-2'">
+                {{ intro?.understanding?.value }}
+            </span>
+            <button @click="() => isReadMore = !isReadMore" class="text-blue-600 leading-relaxed">Read
+                {{ isReadMore? 'less' : 'more' }}</button>
         </p>
     </div>
 </template>
@@ -52,4 +55,6 @@ defineProps({
         },
     }
 })
+const isReadMore = ref(false)
+
 </script>
