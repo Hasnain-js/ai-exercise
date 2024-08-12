@@ -17,6 +17,15 @@ const maxSelections = computed(() => {
         return Math.max(...Object.values(exercises.value).map(item => Array.isArray(item.selected) ? item.selected.length : 0));
     }
 })
+
+const handleSendEmail = () => {
+    Toast.fire({
+        icon: 'success',
+        text: "Email send successfully."
+    }).then(() => {
+        navigateTo("/")
+    })
+}
 </script>
 <template>
     <ExerciseLayout :title="'Your progress based on your selection'" :objective="''">
@@ -32,15 +41,18 @@ const maxSelections = computed(() => {
                             <tr>
                                 <th :id="index" :key="index" v-for="result, index in titles"
                                     class="text-start text-gray-700 border md:text-base text-xs p-4 bg-gray-50">{{
-                                        result }}</th>
+                                        result }}
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="index in maxSelections" :key="index">
                                 <td v-for="(exercise, key) in exercises"
-                                    class="text-start text-gray-900 border whitespace-nowrap md:text-base text-xs p-4 bg-white"
+                                    class="text-start text-gray-900 border whitespace-nowrap md:text-base text-xs  bg-white"
                                     :key="key">
-                                    {{ exercise.selected[index - 1] || '' }}
+                                    <input type="text"
+                                        class="outline-none border-none focus:ring-2 focus:ring-blue-500 p-4"
+                                        :value="exercise.selected[index - 1] || ''">
                                 </td>
                             </tr>
                         </tbody>
@@ -59,7 +71,7 @@ const maxSelections = computed(() => {
                                 </th>
                             </tr>
                         </thead>
-                        <tbody v-if="exercises" >
+                        <tbody v-if="exercises">
                             <tr :key="index" v-for="result, index in titles">
                                 <th
                                     class="text-start text-gray-900 border whitespace-nowrap  md:text-sm text-xs p-4 bg-white">
@@ -73,10 +85,15 @@ const maxSelections = computed(() => {
 
                 </div>
             </div>
-            <NuxtLink to="/"
-                class="w-fit block ml-auto my-4 px-11 sticky bottom-0 py-3 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
-                Next
-            </NuxtLink>
+            <div class="flex items-center" v-if="exercises">
+                <p class="text-black/60 font-medium leading-relaxed">
+                    Send your results to your email
+                </p>
+                <NuxtLink @click="handleSendEmail"
+                    class="w-fit block ml-auto my-4 px-11 sticky bottom-0 py-3 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50">
+                    Send
+                </NuxtLink>
+            </div>
         </div>
     </ExerciseLayout>
 </template>
