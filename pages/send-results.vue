@@ -1,4 +1,6 @@
 <script setup>
+import Swal from "sweetalert2";
+
 definePageMeta({
   middleware: ["auth"],
 });
@@ -23,6 +25,16 @@ const maxSelections = computed(() => {
     );
   }
 });
+
+const handleSendEmail = () => {
+  Swal.fire({
+    icon: "success",
+    text: "Email send successfully.",
+    confirmButtonColor: "#14b8a6",
+  }).then(() => {
+    navigateTo("/");
+  });
+};
 </script>
 <template>
   <ExerciseLayout
@@ -54,10 +66,14 @@ const maxSelections = computed(() => {
               <tr v-for="index in maxSelections" :key="index">
                 <td
                   v-for="(exercise, key) in exercises"
-                  class="text-start text-gray-900 border whitespace-nowrap md:text-base p-4 text-xs bg-white"
+                  class="text-start text-gray-900 border whitespace-nowrap md:text-base text-xs bg-white"
                   :key="key"
                 >
-                  {{ exercise.selected[index - 1] || "" }}
+                  <input
+                    type="text"
+                    class="outline-none border-none focus:ring-2 focus:ring-blue-500 p-4"
+                    :value="exercise.selected[index - 1] || ''"
+                  />
                 </td>
               </tr>
             </tbody>
@@ -89,10 +105,12 @@ const maxSelections = computed(() => {
                 >
                   {{ result }}
                 </th>
-                <td
-                  class="border bg-white text-start text-gray-900 md:text-sm text-xs whitespace-nowrap p-4 w-full"
-                >
-                  {{ exercises[`exercise${index + 1}`].narrative || "" }}
+                <td class="border bg-white">
+                  <input
+                    type="text"
+                    class="outline-none text-start text-gray-900 border-none focus:ring-2 md:text-sm text-xs whitespace-nowrap focus:ring-blue-500 p-4 w-full"
+                    :value="exercises[`exercise${index + 1}`].narrative || ''"
+                  />
                 </td>
               </tr>
             </tbody>
@@ -100,14 +118,14 @@ const maxSelections = computed(() => {
         </div>
       </div>
       <div class="flex items-center" v-if="exercises">
-        <!-- <p class="text-black/60 font-medium leading-relaxed">
+        <p class="text-black/60 font-medium leading-relaxed">
           Send your results to your email
-        </p> -->
+        </p>
         <NuxtLink
-          to="/send-results"
+          @click="handleSendEmail"
           class="w-fit block ml-auto my-4 px-11 sticky bottom-0 py-3 tracking-wide text-white transition-colors duration-300 transform bg-teal-500 rounded-lg hover:bg-teal-400 focus:outline-none focus:bg-teal-400 focus:ring focus:ring-teal-300 focus:ring-opacity-50"
         >
-          Next
+          Send
         </NuxtLink>
       </div>
     </div>
