@@ -31,11 +31,12 @@ const handleSendEmail = () => {
     icon: "success",
     text: "Email send successfully.",
     confirmButtonColor: "#14b8a6",
-  }).then(() => {
-    navigateTo("/");
+  }).then( async () => {
+      await logout()
+    await navigateTo("/");
   });
 };
-</script>
+</script>q
 <template>
   <ExerciseLayout
     :title="'Your progress based on your selection'"
