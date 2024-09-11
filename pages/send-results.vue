@@ -20,8 +20,8 @@ const maxSelections = computed(() => {
   if (exercises.value) {
     return Math.max(
       ...Object.values(exercises.value).map((item) =>
-        Array.isArray(item.selected) ? item.selected.length : 0,
-      ),
+        Array.isArray(item.selected) ? item.selected.length : 0
+      )
     );
   }
 });
@@ -31,12 +31,13 @@ const handleSendEmail = () => {
     icon: "success",
     text: "Email send successfully.",
     confirmButtonColor: "#14b8a6",
-  }).then( async () => {
-      await logout()
+  }).then(async () => {
+    await logout();
     await navigateTo("/");
   });
 };
-</script>q
+</script>
+q
 <template>
   <ExerciseLayout
     :title="'Your progress based on your selection'"
@@ -117,6 +118,14 @@ const handleSendEmail = () => {
             </tbody>
           </table>
         </div>
+        <h2 class="text-slate-700 text-2xl capitalize font-semibold">
+          Combine Narrative
+        </h2>
+        <p
+          class="md:my-8 my-6 bg-white text-start text-gray-900 md:text-sm text-xs whitespace-nowrap p-4 w-full"
+        >
+          {{ exercises?.combine_narative || "loading..." }}
+        </p>
       </div>
       <div class="flex items-center" v-if="exercises">
         <p class="text-black/60 font-medium leading-relaxed">

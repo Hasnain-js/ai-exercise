@@ -18,8 +18,8 @@ const maxSelections = computed(() => {
   if (exercises.value) {
     return Math.max(
       ...Object.values(exercises.value).map((item) =>
-        Array.isArray(item.selected) ? item.selected.length : 0,
-      ),
+        Array.isArray(item.selected) ? item.selected.length : 0
+      )
     );
   }
 });
@@ -98,6 +98,14 @@ const maxSelections = computed(() => {
             </tbody>
           </table>
         </div>
+        <h2 class="text-slate-700 text-2xl capitalize font-semibold">
+          Combine Narrative
+        </h2>
+        <p
+          class="md:my-8 my-6 bg-white text-start text-gray-900 md:text-sm text-xs whitespace-nowrap p-4 w-full"
+        >
+          {{ exercises?.combine_narative || "loading..." }}
+        </p>
       </div>
       <div class="flex items-center" v-if="exercises">
         <!-- <p class="text-black/60 font-medium leading-relaxed">
