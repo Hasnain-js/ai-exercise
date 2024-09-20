@@ -48,7 +48,9 @@ const onSubmit = () => {
         useUserStore().data = res.data.user;
         useUserStore().token = res.data.token;
         useUserStore().isAuthenticated = true;
-        useRouter().push(`/exercise/${Number(res.data.user.step) || "1"}`);
+        useRouter().push(
+          `/exercise/${Number(res.data.user.step) || "1"}/results`
+        );
       })
       .catch((error) => {
         const message = error.response?.data?.message;
