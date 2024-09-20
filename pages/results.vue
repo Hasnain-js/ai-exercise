@@ -3,13 +3,16 @@ definePageMeta({
   middleware: ["auth"],
 });
 const exercises = ref(null);
+const combineNaratives = ref(null);
 const titles = ["Talents", "Top Skills", "Disciplines", "Industries"];
 onMounted(async () => {
   getUserData()
     .then((res) => {
+      combineNaratives.value = res.exercises.combine_narative;
+      delete res.exercises.combine_narative;
       exercises.value = res.exercises;
     })
-    .catch(() => {
+    .catch((err) => {
       useRouter().push(`/`);
     });
 });
@@ -102,9 +105,13 @@ const maxSelections = computed(() => {
           Combine Narrative
         </h2>
         <p
-          class="md:my-8 my-6 bg-white text-start text-gray-900 md:text-sm text-xs whitespace-nowrap p-4 w-full"
+          class="md:my-8 my-6 bg-white text-start text-gray-900 md:text-sm text-xs w-full"
         >
-          {{ exercises?.combine_narative || "loading..." }}
+          <textarea
+            type="text"
+            class="outline-none text-start text-gray-900 border-none focus:ring-2 md:text-sm text-xs focus:ring-blue-500 w-full"
+            :value="combineNaratives || ''"
+          ></textarea>
         </p>
       </div>
       <div class="flex items-center" v-if="exercises">
